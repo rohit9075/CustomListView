@@ -2,7 +2,10 @@ package com.rohit.customlistview;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.rohit.customlistview.StudentAdapter.StudentListAdapter;
 import com.rohit.customlistview.model.Student;
@@ -35,5 +38,15 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(studentListAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Student student = (Student) parent.getAdapter().getItem(position);
+                String studentName = student.getName();
+
+                Toast.makeText(MainActivity.this, "Student name is : " + studentName, Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 }
