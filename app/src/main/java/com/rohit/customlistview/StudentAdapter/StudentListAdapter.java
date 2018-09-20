@@ -14,8 +14,9 @@ import java.util.List;
 
 public class StudentListAdapter extends ArrayAdapter<Student> {
 
-    List<Student> studentList ;
-    Context mContext;
+    // private fields
+    private List<Student> studentList ;
+    private Context mContext;
 
     public StudentListAdapter(Context context, int resource, List<Student> studentList) {
         super(context, resource , studentList);
@@ -27,9 +28,8 @@ public class StudentListAdapter extends ArrayAdapter<Student> {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         if (convertView == null){
-//            LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-//            convertView = inflater.inflate(R.layout.item_list,null , true);
 
+            // inflating the custom layout
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_list,null,false);
         }
 
