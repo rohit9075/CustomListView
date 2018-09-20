@@ -20,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // ArrayList to store student list.
         List<Student> studentList = new ArrayList<>();
 
+        // adding the  student object ot list
         for (int i = 0; i < 50; i++) {
 
             Student student = new Student();
@@ -33,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+        // Object of the student adapter
         StudentListAdapter studentListAdapter = new StudentListAdapter(MainActivity.this,R.layout.item_list, studentList);
 
         ListView listView = findViewById(R.id.listView);
         listView.setAdapter(studentListAdapter);
 
-        // itemclick listener
+        // Handling the list item click
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
